@@ -82,4 +82,7 @@ module.exports = {
       __DEV__: JSON.stringify(true),
     }),
   ],
+  devServer: {
+    open: true,
+  },
 };
