@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-// import {Draggable} from './src/Draggable';
+import {Draggable} from './src/Draggable';
 
 const Colors = {
   primary: '#1292B4',
@@ -39,18 +39,18 @@ const App = () => {
   ];
 
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={styles.root}>
       <SafeAreaView style={backgroundStyle}>
-        {/* <Draggable style={styles.draggable}> */}
-        <Text style={titleStyle}>Hello World!</Text>
-        {/* </Draggable> */}
+        <Draggable>
+          <Text style={titleStyle}>Hello World!</Text>
+        </Draggable>
       </SafeAreaView>
     </GestureHandlerRootView>
   );
 };
 
 const styles = StyleSheet.create({
-  draggable: {backgroundColor: 'white'},
+  root: {flex: 1},
   title: {
     fontSize: 20,
     fontWeight: 'bold',

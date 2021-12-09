@@ -81,6 +81,7 @@ module.exports = {
       // See: https://github.com/necolas/react-native-web/issues/349
       __DEV__: JSON.stringify(true),
     }),
+    new webpack.DefinePlugin({process: {env: {}}}),
   ],
   devServer: {
     open: true,
