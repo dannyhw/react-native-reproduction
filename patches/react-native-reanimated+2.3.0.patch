@@ -1,0 +1,23 @@
+diff --git a/node_modules/react-native-reanimated/lib/reanimated2/core.js b/node_modules/react-native-reanimated/lib/reanimated2/core.js
+index 706a560..0de9263 100644
+--- a/node_modules/react-native-reanimated/lib/reanimated2/core.js
++++ b/node_modules/react-native-reanimated/lib/reanimated2/core.js
+@@ -263,8 +263,8 @@ if (!NativeReanimatedModule.useOnlyV1) {
+     NativeReanimatedModule.installCoreFunctions(NativeReanimatedModule.native
+         ? workletValueSetter
+         : workletValueSetterJS);
+-    const capturableConsole = console;
+-    isConfigured() &&
++    if (!isWeb() && isConfigured()) {
++        const capturableConsole = console;
+         runOnUI(() => {
+             'worklet';
+             const console = {
+@@ -279,6 +279,7 @@ if (!NativeReanimatedModule.useOnlyV1) {
+                 now: global._chronoNow,
+             };
+         })();
++    }
+ }
+ let featuresConfig = {
+     enableLayoutAnimations: false,
