@@ -88,7 +88,7 @@ export const Draggable = ({children, style}: DraggableProps) => {
     };
   });
   useEffect(() => {
-    scale.value = withTiming(2);
+    scale.value = withSpring(2);
   }, [scale]);
 
   return (
