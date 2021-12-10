@@ -25,7 +25,11 @@ const babelLoaderConfiguration = {
     loader: 'babel-loader',
     options: {
       cacheDirectory: true,
-      presets,
+      // presets,
+      presets: [
+        '@babel/preset-react',
+        {plugins: ['@babel/plugin-proposal-class-properties']},
+      ],
       plugins: ['react-native-web', ...plugins],
     },
   },

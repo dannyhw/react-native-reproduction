@@ -4,6 +4,9 @@ import App from './App';
 if (module.hot) {
   module.hot.accept();
 }
+
+// if (!window.performance.now) window.performance.now = Date.now;
+
 AppRegistry.registerComponent(appName, () => App);
 AppRegistry.runApplication(appName, {
   initialProps: {},

@@ -1,4 +1,4 @@
-import React, {ReactNode, useRef} from 'react';
+import React, {ReactNode, useEffect, useRef} from 'react';
 import {Platform, StyleProp, StyleSheet, ViewStyle} from 'react-native';
 import {
   PanGestureHandler,
@@ -81,6 +81,16 @@ export const Draggable = ({children, style}: DraggableProps) => {
     }, [x, y, tapActive, panActive]),
   });
 
+  const scale = useSharedValue(1);
+  const scaleStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{scale: scale.value}],
+    };
+  });
+  useEffect(() => {
+    scale.value = withTiming(2);
+  }, [scale]);
+
   return (
     <PanGestureHandler
       ref={panRef}
@@ -96,7 +106,7 @@ export const Draggable = ({children, style}: DraggableProps) => {
           onEnded={endTap}
           onFailed={endTap}
           onCancelled={endTap}>
-          <Animated.View style={[styles.box, panStyle, style]}>
+          <Animated.View style={[styles.box, panStyle, scaleStyle, style]}>
             {children}
           </Animated.View>
         </TapGestureHandler>
