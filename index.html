@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite react native web</title>
+    <style>
+      #app-root,
+      body,
+      html {
+        display: flex;
+        flex: 1 1 100%;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app-root"></div>
+    <script type="module">
+      import RefreshRuntime from '/@react-refresh';
+      RefreshRuntime.injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => type => type;
+      window.__vite_plugin_react_preamble_installed__ = true;
+      var global = window;
+    </script>
+    <script type="module" src="/index.web.js"></script>
+  </body>
+</html>
